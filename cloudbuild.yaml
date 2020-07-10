@@ -4,6 +4,6 @@ steps:
       args: ["install"]
     - name: node:12
       entrypoint: npm
-      args: ["build"]
+      args: ["run-script build"]
     - name: gcr.io/$PROJECT_ID/firebase
       args: ['deploy', "--project", "$PROJECT_ID", '--only=hosting']
