@@ -10,7 +10,7 @@ const IndexPage = () => (
     <SEO title="Entroprise" />
     <Iframe url="https://entroprise.app/auth"
         width="100%"
-        height="450px"
+        height="512px"
         id="entroprise-app-id"
         className="entroprise-app"
         display="initial"
