@@ -1,17 +1,22 @@
 import React from "react"
 import { Link } from "gatsby"
+import Iframe from 'react-iframe'
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Entroprise" />
-    <h1>Deep conversational search.</h1>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
+    <Iframe url="https://entroprise.app"
+        width="100%"
+        height="450px"
+        id="entroprise-app-id"
+        className="entroprise-app"
+        display="initial"
+        position="relative"
+        frameBorder="0"
+    />
     <Link to="/about/">About</Link> <br />
   </Layout>
 )
