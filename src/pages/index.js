@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Entroprise" />
-    <Iframe url="https://entroprise.app"
+    <Iframe url="https://entroprise.app/auth"
         width="100%"
         height="450px"
         id="entroprise-app-id"
