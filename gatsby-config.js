@@ -21,8 +21,8 @@ module.exports = {
         name: `entro-web`,
         short_name: `entro-web`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#3f51b5`,
+        theme_color: `#3f51b5`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
