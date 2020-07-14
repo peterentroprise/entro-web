@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "entro-production"
+  },
+  "targets": {
+    "entro-production": {
+      "hosting": {
+        "entro-admin-production": [
+          "entro-admin-production"
+        ]
+      }
+    }
   }
 }
