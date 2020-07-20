@@ -11,7 +11,7 @@ const IndexPage = () => (
     <Iframe
       url="https://app.entroprise.com/auth"
       width="100%"
-      height="512px"
+      height="2048px"
       id="entroprise-app-id"
       className="entroprise-app"
       display="initial"
