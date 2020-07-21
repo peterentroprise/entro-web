@@ -125,21 +125,13 @@ const Header = ({ siteTitle, props }) => {
   const open = Boolean(anchorEl)
 
   return (
-    <header>
+    <>
       <Scroll {...props}>
         <AppBar className={classes.appBar} positon="sticky" color="inherit">
           <Toolbar className={classes.toolbar}>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="home"
-              onClick={() => navigate("/")}
-            >
-              <HomeOutlinedIcon />
-            </IconButton>
             <div className={classes.grow} />
             <IconButton
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/")}
               aria-label="about"
               edge="end"
               color="inherit"
@@ -162,7 +154,7 @@ const Header = ({ siteTitle, props }) => {
         </AppBar>
       </Scroll>
       <Toolbar className={classes.toolbar}></Toolbar>
-    </header>
+    </>
   )
 }
 

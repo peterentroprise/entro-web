@@ -62,11 +62,11 @@ const Layout = ({ children }) => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Helmet>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <ClientComponent />
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <main>{children}</main>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        {children}
+        <ClientComponent />
       </ThemeProvider>
     </>
   )
