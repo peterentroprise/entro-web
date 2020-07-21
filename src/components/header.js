@@ -95,9 +95,7 @@ function Scroll(props) {
     <Slide appear={false} direction="down" in={!trigger2}>
       {React.cloneElement(children, {
         elevation: trigger1 ? 4 : 0,
-        backgroundColor: trigger1
-          ? classes.appBar.backgroundColor
-          : classes.appBarPaper.backgroundColor,
+        className: trigger1 ? classes.appBarPaper : classes.appBar,
       })}
     </Slide>
   )
@@ -139,10 +137,6 @@ const Header = ({ siteTitle, props }) => {
             >
               <HomeOutlinedIcon />
             </IconButton>
-            <div className={classes.grow} />
-            <Typography variant="h6" className={classes.title}>
-              {siteTitle}
-            </Typography>
             <div className={classes.grow} />
             <IconButton
               onClick={() => navigate("/about")}

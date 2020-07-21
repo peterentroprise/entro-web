@@ -6,7 +6,13 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   frame: {
-    height: "100vh",
+    zIndex: 3000,
+    position: "fixed",
+    top: 0,
+    width: "100%",
+    height: "100%",
+    // left: "50%",
+    // transform: "translateX(-50%)",
   },
 }))
 const ClientComponent = () => {
@@ -17,8 +23,8 @@ const ClientComponent = () => {
       <Iframe
         // url="https://app.entroprise.com"
         url="http://127.0.0.1:3000"
-        width="100%"
         height="100%"
+        width="100%"
         id="entroprise-app-id"
         className="entroprise-app"
         display="initial"

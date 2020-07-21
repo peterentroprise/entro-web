@@ -7,6 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 
 import Header from "./header"
+import ClientComponent from "./ClientComponent"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -55,13 +56,14 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
       <Helmet>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Helmet>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <ClientComponent />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <main>{children}</main>
