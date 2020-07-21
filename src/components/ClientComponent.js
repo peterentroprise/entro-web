@@ -28,7 +28,7 @@ const ClientComponent = () => {
         inPageLinks
         frameBorder="none"
         log
-        src="https://app/entroprise.com"
+        src="https://app.entroprise.com"
         // width="100%"
         style={{
           position: "fixed",
