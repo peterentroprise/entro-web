@@ -22,7 +22,7 @@ module.exports = {
         name: `Entroprise`,
         short_name: `Entroprise`,
         start_url: `/`,
-        background_color: `#3f51b5`,
+        background_color: `#fff`,
         theme_color: `#3f51b5`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`,
