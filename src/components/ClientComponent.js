@@ -21,8 +21,8 @@ const ClientComponent = () => {
   return (
     <div className={classes.frame}>
       <Iframe
-        // url="https://app.entroprise.com"
-        url="http://127.0.0.1:3000"
+        url="https://app.entroprise.com"
+        // url="http://127.0.0.1:3000"
         height="100%"
         width="100%"
         id="entroprise-app-id"
