@@ -1,26 +1,26 @@
 import React from "react"
-import { Link } from "gatsby"
-import Iframe from "react-iframe"
 
-import Layout from "../components/layout"
+import LayoutComponent from "../components/LayoutComponent"
 import SEO from "../components/seo"
+import IndexComponent from "../components/IndexComponent"
+import ClientComponent from "../components/ClientComponent"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Entroprise" />
-    <Iframe
-      url="https://app.entroprise.com/auth"
-      width="100%"
-      height="2048px"
-      id="entroprise-app-id"
-      className="entroprise-app"
-      display="initial"
-      position="relative"
-      frameBorder="0"
-    />
-    <Link to="/about/">About</Link> <br />
-    <Link to="https://admin.entroprise.com/">Admin</Link> <br />
-  </Layout>
-)
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles(theme => ({
+  root: {},
+}))
+
+const IndexPage = () => {
+  const classes = useStyles()
+
+  return (
+    <LayoutComponent>
+      <SEO title="Entroprise" />
+      <IndexComponent />
+      <ClientComponent />
+    </LayoutComponent>
+  )
+}
 
 export default IndexPage
