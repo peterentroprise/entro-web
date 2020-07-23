@@ -64,7 +64,6 @@ const Layout = ({ children }) => {
       </Helmet>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header siteTitle={data.site.siteMetadata.title} />
         {children}
         <ClientComponent />
       </ThemeProvider>
