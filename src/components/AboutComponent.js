@@ -25,7 +25,10 @@ const AboutComponent = () => {
       </Box>
       <Box mb={3}>
         <Card variant="outlined">
-          <CardHeader title="Deep Conversational Search" />
+          <CardHeader
+            title="Entroprise"
+            subheader="Deep Conversational Search"
+          />
           <CardContent>
             <Typography>
               In mainstream theories of natural language syntax, every
