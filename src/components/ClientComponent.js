@@ -8,11 +8,8 @@ const useStyles = makeStyles(theme => ({
   frame: {
     zIndex: 2147483639,
     position: "fixed",
-    top: 8,
-    left: 11,
-    // left: 24,
-    // width: "100px",
-    // height: "100px",
+    top: 0,
+    left: 0,
   },
 }))
 const ClientComponent = () => {
