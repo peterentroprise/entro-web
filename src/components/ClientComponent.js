@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   frame: {
     zIndex: 2147483639,
     position: "fixed",
-    top: 0,
+    botyto: 0,
     left: 0,
   },
 }))
@@ -24,9 +24,8 @@ const ClientComponent = () => {
         heightCalculationMethod="lowestElement"
         inPageLinks
         frameBorder="none"
-        log
         src="https://app.entroprise.com"
-        // width="100%"
+        // src="http://127.0.0.1:3000/"
         style={{
           position: "fixed",
           width: "1px",
