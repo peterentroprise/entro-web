@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   frame: {
     zIndex: 2147483639,
     position: "fixed",
-    botyto: 0,
+    top: 0,
     left: 0,
   },
 }))
