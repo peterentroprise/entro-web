@@ -24,8 +24,8 @@ const ClientComponent = () => {
         heightCalculationMethod="lowestElement"
         inPageLinks
         frameBorder="none"
-        src="https://app.entroprise.com"
-        // src="http://127.0.0.1:3000/"
+        // src="https://app.entroprise.com"
+        src="http://127.0.0.1:3000/"
         style={{
           position: "fixed",
           width: "1px",

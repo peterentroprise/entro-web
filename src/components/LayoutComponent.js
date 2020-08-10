@@ -22,6 +22,7 @@ const Layout = ({ children }) => {
 
   const theme = createMuiTheme({
     palette: {
+      type: "dark",
       primary: {
         main: "#219a49",
       },

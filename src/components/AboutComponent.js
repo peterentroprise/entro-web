@@ -20,7 +20,7 @@ const AboutComponent = () => {
 
   return (
     <Container maxWidth="sm">
-      <Box mt={2} mx={2}>
+      <Box mt={10} mx={2}>
         <Image />
       </Box>
       <Box mb={3}>
