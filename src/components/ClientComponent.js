@@ -30,7 +30,7 @@ const ClientComponent = () => {
           position: "fixed",
           width: "1px",
           minWidth: "100%",
-          maxHeight: "100vh",
+          maxHeight: "calc(100vh - 56px)",
           zIndex: 2147483639,
         }}
       />
