@@ -66,7 +66,7 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
-        <ClientComponent />
+        {/* <ClientComponent /> */}
       </ThemeProvider>
     </>
   )

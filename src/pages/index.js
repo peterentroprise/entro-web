@@ -17,7 +17,7 @@ const IndexPage = () => {
   return (
     <LayoutComponent>
       <SEO title="Entroprise" />
-      <AboutComponent />
+      {/* <AboutComponent /> */}
       <IndexComponent />
     </LayoutComponent>
   )
