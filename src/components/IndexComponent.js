@@ -38,28 +38,29 @@ const IndexComponent = () => {
     setInputSeed(event.target.value);
   };
 
-  const restClient = axios.create({
-    baseURL: "http://localhost:8080",
-    headers: {
-      "Content-type": "application/json",
-    },
-  });
 
-  const generateText = () => {
-    restClient.post('/generate', {
-      text: inputText,
-      seed: inputSeed,
-      max_length: inputMaxLength,
-      num_return_sequences: 1
-    })
-    .then(function (response) {
-      console.log(response);
-      setGeneratedText(response.data[0].generated_text)
-    })
-    .catch(function (error) {
-      console.log(error);
+  const generateText = async () => {
+    const response = fetch('https://text-gen-e7sfctcgkq-uc.a.run.app/generate', {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify({
+        text: inputText,
+        seed: inputSeed,
+        max_length: inputMaxLength,
+        num_return_sequences: 1
+      }) // body data type must match "Content-Type" header
     });
-  }
+    console.log(response)
+
+    // setGeneratedText(response.json().data[0].generated_text)
+}
 
   return (
     <Container maxWidth="sm">
