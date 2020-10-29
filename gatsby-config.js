@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Entroprise`,
-    description: `Deep Conversational Search.`,
+    description: `Merging the finite with infinite.`,
     author: `peter@entroprise.com`,
   },
   plugins: [
@@ -23,7 +23,7 @@ module.exports = {
         short_name: `Entroprise`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#3f51b5`,
+        theme_color: `#219a49`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`,
       },

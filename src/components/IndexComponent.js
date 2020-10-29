@@ -6,10 +6,12 @@ import {
   Card,
   CardContent,
   Container,
+  CardHeader,
   Box,
   Button,
   Typography,
   TextField,
+  CircularProgress
 } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
@@ -18,9 +20,11 @@ const useStyles = makeStyles(theme => ({
 const IndexComponent = () => {
   const classes = useStyles()
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const [generatedText, setGeneratedText] = useState("");
 
-  const [inputText, setInputText] = useState('Callum is');
+  const [inputText, setInputText] = useState('Entroprise is a company that');
 
   const [inputMaxLength, setInputMaxLength] = useState(100);
 
@@ -38,34 +42,41 @@ const IndexComponent = () => {
     setInputSeed(event.target.value);
   };
 
+  const restClient = axios.create({
+    baseURL: "https://text-gen-e7sfctcgkq-uc.a.run.app/",
+    headers: {
+      "Content-type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
 
-  const generateText = async () => {
-    const response = fetch('https://text-gen-e7sfctcgkq-uc.a.run.app/generate', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify({
-        text: inputText,
-        seed: inputSeed,
-        max_length: inputMaxLength,
-        num_return_sequences: 1
-      }) // body data type must match "Content-Type" header
+  const generateText = () => {
+    setIsLoading(true)
+    setGeneratedText("")
+    restClient.post('/generate/', {
+      text: inputText,
+      seed: inputSeed,
+      max_length: inputMaxLength,
+      num_return_sequences: 1
+    })
+    .then(function (response) {
+      console.log(response);
+      setIsLoading(false)
+      setGeneratedText(response.data[0].generated_text)
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-    console.log(response)
-
-    // setGeneratedText(response.json().data[0].generated_text)
-}
+  }
 
   return (
     <Container maxWidth="sm">
        <Box mt={2} mb={3}>
         <Card variant="outlined">
+        <CardHeader
+        title="Text Generation"
+        subheader="ML Model: gpt2"
+      />
           <CardContent>
           <Box mt={2} mb={1}>
           <TextField fullWidth label="Max Length" value={inputMaxLength}
@@ -78,20 +89,23 @@ const IndexComponent = () => {
           
           <Box mt={2} mb={1}> <TextField fullWidth label="Input Text" value={inputText}
           onChange={handleChangeInputText} /></Box>
-          <Box mt={2} mb={1}>  <Button onClick={generateText} color="primary" variant="contained">Generate Future</Button></Box>
-        
+          <Box mt={2} mb={1}>  <Button onClick={generateText} color="primary" variant="contained">Generate Text</Button></Box>
+          {isLoading && <CircularProgress />}
           </CardContent>
         </Card>
       </Box>
-      <Box mt={2} mb={3}>
+      
+      {generatedText &&  <Box mt={2} mb={3}>
         <Card variant="outlined">
           <CardContent>
+            
             <Typography>
              {generatedText}
             </Typography>
           </CardContent>
         </Card>
-      </Box>
+      </Box>}
+     
     </Container>
   )
 }
