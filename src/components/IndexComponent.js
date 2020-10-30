@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react"
 
 import { makeStyles } from "@material-ui/core/styles"
 import {
   Card,
   CardContent,
-  Container,
   CardHeader,
+  Container,
   Box,
-  Button,
   Typography,
-  TextField,
-  CircularProgress
 } from "@material-ui/core"
+
+import Image from "../components/image"
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -20,92 +18,37 @@ const useStyles = makeStyles(theme => ({
 const IndexComponent = () => {
   const classes = useStyles()
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [generatedText, setGeneratedText] = useState("");
-
-  const [inputText, setInputText] = useState('Entroprise is a company that');
-
-  const [inputMaxLength, setInputMaxLength] = useState(100);
-
-  const [inputSeed, setInputSeed] = useState(32);
-
-  const handleChangeInputText = (event) => {
-    setInputText(event.target.value);
-  };
-
-  const handleChangeInputMaxLength = (event) => {
-    setInputMaxLength(event.target.value);
-  };
-
-  const handleChangeInputSeed = (event) => {
-    setInputSeed(event.target.value);
-  };
-
-  const restClient = axios.create({
-    baseURL: "https://text-gen-e7sfctcgkq-uc.a.run.app/",
-    headers: {
-      "Content-type": "application/json",
-      'Access-Control-Allow-Origin': '*',
-    },
-  });
-
-  const generateText = () => {
-    setIsLoading(true)
-    setGeneratedText("")
-    restClient.post('/generate/', {
-      text: inputText,
-      seed: inputSeed,
-      max_length: inputMaxLength,
-      num_return_sequences: 1
-    })
-    .then(function (response) {
-      console.log(response);
-      setIsLoading(false)
-      setGeneratedText(response.data[0].generated_text)
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
   return (
     <Container maxWidth="sm">
-       <Box mt={2} mb={3}>
-        <Card variant="outlined">
-        <CardHeader
-        title="Text Generation"
-        subheader="ML Model: gpt2"
-      />
-          <CardContent>
-          <Box mt={2} mb={1}>
-          <TextField fullWidth label="Max Length" value={inputMaxLength}
-          onChange={handleChangeInputMaxLength} />
-          </Box>
-          <Box mt={2} mb={1}>
-          <TextField fullWidth label="Randomization Seed" value={inputSeed}
-          onChange={handleChangeInputSeed} />
-          </Box>
-          
-          <Box mt={2} mb={1}> <TextField fullWidth label="Input Text" value={inputText}
-          onChange={handleChangeInputText} /></Box>
-          <Box mt={2} mb={1}>  <Button onClick={generateText} color="primary" variant="contained">Generate Text</Button></Box>
-          {isLoading && <CircularProgress />}
-          </CardContent>
-        </Card>
+      <Box mt={10} mx={2}>
+        <Image />
       </Box>
-      
-      {generatedText &&  <Box mt={2} mb={3}>
+      <Box mb={3}>
         <Card variant="outlined">
+          <CardHeader
+            title="Entroprise"
+            subheader="Merging the finite with the infinite."
+          />
           <CardContent>
-            
             <Typography>
-             {generatedText}
+              In mainstream theories of natural language syntax, every
+              syntactically-valid utterance can be extended to produce a new,
+              longer one, because of recursion. If this process can be continued
+              indefinitely, then there is no upper bound on the length of a
+              well-formed utterance and the number of unique well-formed strings
+              of any language is countably infinite. However, the books in the
+              Library of Babel are of bounded--**/ length ("each book is of four
+              hundred and ten pages; each page, of forty lines, each line, of
+              some eighty letters"), so the Library can only contain a finite
+              number of distinct strings, and thus cannot contain all possible
+              well-formed utterances. Borges' narrator notes this fact, but
+              believes that the Library is nevertheless infinite; he speculates
+              that it repeats itself periodically, giving an eventual "order" to
+              the "disorder" of the seemingly-random arrangement of books.
             </Typography>
           </CardContent>
         </Card>
-      </Box>}
-     
+      </Box>
     </Container>
   )
 }
