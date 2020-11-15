@@ -82,7 +82,7 @@ const IndexComponent = () => {
       .then(function (response) {
         console.log(response)
         setIsLoading(false)
-        setGeneratedText(response.choices[0].text)
+        setGeneratedText(response.data.choices[0].text)
       })
       .catch(function (error) {
         console.log(error)
