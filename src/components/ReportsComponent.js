@@ -125,7 +125,7 @@ const PointsComponent = () => {
                     disabled={isLoading}
                     onClick={generateText}
                   >
-                    Generate Text
+                    Generate Report
                   </Button>
                   {isLoading && (
                     <CircularProgress
