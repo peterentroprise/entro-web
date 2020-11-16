@@ -33,16 +33,16 @@ const useStyles = makeStyles(theme => ({
     marginLeft: -12,
   },
 }))
-const IndexComponent = () => {
+const PointsComponent = () => {
   const classes = useStyles()
 
   const [isLoading, setIsLoading] = useState(false)
 
   const [generatedText, setGeneratedText] = useState("")
 
-  const [inputText, setInputText] = useState("What are the key points from this text:\n\n\"\"\"\nPluto (minor planet designation: 134340 Pluto) is a dwarf planet in the Kuiper belt, a ring of bodies beyond the orbit of Neptune. It was the first and the largest Kuiper belt object to be discovered.\n\nPluto was discovered by Clyde Tombaugh in 1930 and declared to be the ninth planet from the Sun. After 1992, its status as a planet was questioned following the discovery of several objects of similar size in the Kuiper belt. In 2005, Eris, a dwarf planet in the scattered disc which is 27% more massive than Pluto, was discovered. This led the International Astronomical Union (IAU) to define the term \"planet\" formally in 2006, during their 26th General Assembly. That definition excluded Pluto and reclassified it as a dwarf planet.\n\nPluto is the ninth-largest and tenth-most-massive known object directly orbiting the Sun. It is the largest known trans-Neptunian object by volume but is less massive than Eris. Like other Kuiper belt objects, Pluto is primarily made of ice and rock and is relatively small—one-sixth the mass of the Moon and one-third its volume. It has a moderately eccentric and inclined orbit during which it ranges from 30 to 49 astronomical units or AU (4.4–7.4 billion km) from the Sun. This means that Pluto periodically comes closer to the Sun than Neptune, but a stable orbital resonance with Neptune prevents them from colliding. Light from the Sun takes 5.5 hours to reach Pluto at its average distance (39.5 AU).\n\nPluto has five known moons: Charon (the largest, with a diameter just over half that of Pluto), Styx, Nix, Kerberos, and Hydra. Pluto and Charon are sometimes considered a binary system because the barycenter of their orbits does not lie within either body.\n\"\"\"\n\nThe eight key points are:\n\n1.")
+  const [inputText, setInputText] = useState("Read this customer response then answer the following questions:\n\n\"\"\"\nOn March 22 I bought a copy of your game World War Mice. While I enjoyed the beginning of the game I thought the later levels weren't that exciting and the game play was either too easy or impossible. I also thought the graphics were really subpar compared to what was in the video game trailer. I think you can do better and fix it with an update.\n\"\"\"\n\nQuestions:\n1. What product was this about?\n2. Did the customer have complaints?\n3. What as their main comment about the product?\n4. If they were unsatisfied, what can we do to fix this problem?\n5. Was the customer polite?\n\nAnswers:\n1.")
 
-  const [inputMaxLength, setInputMaxLength] = useState(100)
+  const [inputMaxLength, setInputMaxLength] = useState(64)
 
   const [inputMinLength, setInputMinLength] = useState(10)
 
@@ -70,10 +70,11 @@ const IndexComponent = () => {
     setIsLoading(true)
     setGeneratedText("")
     restClient
-      .post("/davinci/", {
+      .post("/curie/report", {
         text: inputText,
         max_tokens: inputMaxLength,
-        temperature: 0,
+        temperature: 0.2,
+        top_p: 1
       })
       .then(function (response) {
         console.log(response)
@@ -90,8 +91,8 @@ const IndexComponent = () => {
       <Box mt={3} mb={3}>
         <Card variant="outlined">
           <CardHeader
-            title="Text Generation"
-            subheader="ML Model: open-ai/GPT3: davinci"
+            title="Reports Generation"
+            subheader="ML Model: open-ai/GPT3: curie"
           />
           <CardContent>
             <Box mt={2} mb={1}>
@@ -107,7 +108,7 @@ const IndexComponent = () => {
               {" "}
               <TextField
                 multiline
-                rowsMax={4}
+                rowsMax={12}
                 fullWidth
                 label="Input Text"
                 value={inputText}
@@ -152,4 +153,4 @@ const IndexComponent = () => {
   )
 }
 
-export default IndexComponent
+export default PointsComponent
