@@ -71,7 +71,7 @@ const IndexComponent = () => {
     setGeneratedText("")
     restClient
       .post("/davinci/", {
-        text: inputText,
+        prompt: inputText,
         max_tokens: inputMaxLength,
         temperature: 0.7,
         top_p: 1

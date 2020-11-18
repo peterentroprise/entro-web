@@ -71,7 +71,7 @@ const PointsComponent = () => {
     setGeneratedText("")
     restClient
       .post("/curie/report", {
-        text: inputText,
+        prompt: inputText,
         max_tokens: inputMaxLength,
         temperature: 0.2,
         top_p: 1

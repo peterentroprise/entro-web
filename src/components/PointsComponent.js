@@ -48,6 +48,7 @@ const PointsComponent = () => {
 
   const handleChangeInputText = event => {
     setInputText(event.target.value)
+    console.log(event.target.value)
   }
 
   const handleChangeInputMaxLength = event => {
@@ -71,7 +72,7 @@ const PointsComponent = () => {
     setGeneratedText("")
     restClient
       .post("/curie/points", {
-        text: inputText,
+        prompt: inputText,
         max_tokens: inputMaxLength,
         temperature: 0.5,
         top_p: 1
