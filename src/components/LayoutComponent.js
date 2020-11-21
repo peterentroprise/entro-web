@@ -7,6 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 
 import Header from "./header"
+import ClientComponent from "./ClientComponent"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -65,6 +66,7 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
+        <ClientComponent />
       </ThemeProvider>
     </>
   )
