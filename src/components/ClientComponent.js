@@ -29,8 +29,9 @@ const ClientComponent = () => {
         style={{
           position: "fixed",
           width: "1px",
-          minWidth: "100%",
-          maxHeight: "calc(100vh - 56px)",
+          top: "24px",
+          right: "24px",
+          minWidth: "400px",
           zIndex: 2147483639,
         }}
       />
