@@ -20,8 +20,10 @@ const ClientComponent = () => {
   return (
     <div className={classes.frame}>
       <IframeResizer
+        log
         forwardRef={ref}
         heightCalculationMethod="lowestElement"
+        checkOrigin="false"
         inPageLinks
         frameBorder="none"
         // src="https://entro-client-e7sfctcgkq-uc.a.run.app/"
@@ -29,7 +31,7 @@ const ClientComponent = () => {
         style={{
           position: "fixed",
           width: "1px",
-          top: "0px",
+          bottom: "0px",
           right: "0px",
           minWidth: "100%",
           zIndex: 2147483639,
