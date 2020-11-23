@@ -27,11 +27,11 @@ const ClientComponent = () => {
         inPageLinks
         frameBorder="none"
         src="https://entro-client-e7sfctcgkq-uc.a.run.app/"
-        // src="http://localhost:3000/"
+        src="http://localhost:3000/"
         style={{
           position: "fixed",
           width: "1px",
-          bottom: "0px",
+          top: "0px",
           right: "0px",
           minWidth: "100%",
           zIndex: 2147483639,
