@@ -1,7 +1,6 @@
 const functions = require("firebase-functions")
 
 exports.cloneNewUser = functions.auth.user().onCreate(user => {
-  console.log(user)
   db.collection("users")
     .add({
       displayName: user.displayName,
