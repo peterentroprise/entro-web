@@ -1,15 +1,11 @@
 const functions = require("firebase-functions")
+const admin = require("firebase-admin")
+admin.initializeApp()
 
-exports.cloneNewUser = functions.auth.user().onCreate(user => {
-  db.collection("users")
-    .add({
-      displayName: user.displayName,
-      uid: user.uid,
-    })
-    .then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id)
-    })
-    .catch(function (error) {
-      console.error("Error adding document: ", error)
-    })
+exports.saveNewUser = functions.auth.user().onCreate(async user => {
+  return admin
+    .firestore()
+    .collection("users")
+    .doc(user.uid)
+    .set(JSON.parse(JSON.stringify(user)))
 })
