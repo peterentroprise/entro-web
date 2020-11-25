@@ -58,14 +58,16 @@ const ClientComponent = () => {
         <iframe
           inPageLinks
           frameBorder="none"
+          scrolling="yes"
           src="https://entro-client-e7sfctcgkq-uc.a.run.app/"
-          src="http://localhost:3000/"
+          // src="http://localhost:3000/"
           style={{
             position: "fixed",
-            width: "384px",
-            height: "640px",
+            width: "calc(100vw - 32px)",
+            height: "calc(100vh - 80px)",
+            maxHeight: "640px",
             bottom: "80px",
-            right: "0px",
+            right: "16px",
           }}
         />
       )}
